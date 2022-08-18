@@ -1,81 +1,102 @@
 body{
+    background-color: #F8E7D4;
     width: 100%;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
-    position: fixed;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    padding: 0;
+    margin: 0;
 }
 h1{
     color: white;
 }
-.title,
+.start-container,
 .difficulty,
 .game,
 .final{
     position: absolute;
-    top: 0vh;
-    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    place-items: center;
+    background-color: #46b252;
+    gap: 2vh;
+    width: 100%;
     height: 100%;
-    align-items: center;
-    justify-content: center;
     background-image: url("./img/Background.png");
     background-repeat: no-repeat;
 }
+.difficulty{
+    background-image: url("./img/selectionbackground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -20vh;
+    background-size: 110vh;
+}
+.whole-question{
+    position: relative;
+    top: -3vh;
+}
+.question-container{
+    display: grid;
+    gap: 3vmin;
+    grid-template-columns: repeat(7, 9vmin);
+    grid-template-rows: repeat(2, 12vmin);
+}
+.question-container1{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: row;
+    bottom: -3vmin;
+    gap: 3vmin;
+}
+.select-difficulty{
+    position: relative;
+    top: -3vh;
+    width: 30vh;
+}
+.select-title{
+    position: relative;
+    top: -10vh;
+}
 img{
-    width: 15vmin;
+    width: 11vmin;
+}
+.text{
+    width: 30vmin;
+}
+.title,
+.select-title{
+    width: 20vh;
+}
+.preview{
+    width: 97vmin;
 }
 button{
-    width: 18vmin;
-    border: 0px ;
-    background-color: rgb(0, 0, 0,0);
+    background-color: rgba(255, 255, 255,0);
+    border: 0px;
 }
-.start{
-    position: absolute;
-    width: 30vmin;
-    height: 15vmin;
-    bottom: 15vh;
-    color:#6F8D71;
-    background-color: white;
-    border-radius: 1em;
-    font-weight: 600;
-    font-size: 8vmin;
-    border: 2px solid black;
+.btn{
+    width: 40vh;
+    height: 10vh;
 }
-.normal,
-.easy,
-.hard{
+.hubtn{
     position: absolute;
-    width: 30vmin;
-    height: 15vmin;
-    bottom: 7vh;
-    color:#6F8D71;
-    background-color: white;
-    border-radius: 1em;
-    font-weight: 600;
-    font-size: 8vmin;
-    border: 2px solid black;
-    font-size: 7vmin;
+    width: 40vmin;
+    height: 12vmin;
+    display: flex;
+    bottom: -37vmin;
 }
-.playAgain{
+.winNext{
     position: absolute;
-    width: 50vmin;
-    height: 15vmin;
-    bottom: 10vh;
-    color:#6F8D71;
-    background-color: white;
-    border-radius: 1em;
-    font-weight: 600;
-    font-size: 8vmin;
-    border: 2px solid black;
-    font-size: 7vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .easy{
     left: 1vh;
@@ -93,11 +114,6 @@ button{
     position: absolute;
     top: 15vh;
 }
-.img-container,
-.question-container{
-    position: absolute;
-    top: 20vh;
-}
 h1{
     position: absolute;
     top: 2vh;
@@ -109,44 +125,86 @@ h2{
     margin: 0;
 }
 .options{
-    position: absolute;
-    bottom: 10vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 20vmin);
+    grid-template-rows: repeat(1, 17vmin);
+    width: 45vmin;
+    height:17vmin;
     justify-content: center;
 }
 div{
     color: white;
     font-size: larger;
 }
-.correct,
-.wrong{
+.correct{
     display: flex;
     position: absolute;
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
     height: 100%;
 }
+.questionNumber{
+    position: relative;
+    top: -5vh;
+    font-family: "Lilita One";
+    font-size: 6vh;
+    margin: 0vh;
+    color: #FFF8E0;
+}
 .small{
-    position: absolute;
-    top: 25vh;
-    width: 45vh;
+    width: 90vmin;
 }
 .imgBig{
     width: 40vh;
     height: 100%;
 }
 .center{
-    position: absolute;
-    top: 15vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bigText{
+    width: 30vh;
 }
 .imgMid{
+    position: relative;
     width: 25vh;
     height: 100%;
 }
 .imgBiger{
-    width: 57vh;
+    position: relative;
+    width: 50vh;
     height: 100%;
+}
+.topRight{
+    position: absolute;
+    display: flex;
+    top: 1vh;
+    right: 1vh;
+}
+.icon{
+    width: 7vh;
+}
+.btn1,
+.btn2,
+.btn3,
+.btn4{
+    position: absolute;
+    display: flex;
+    width: 20vh;
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+}
+.overlay{
+    display: flex;
+    position: absolute;
+    margin-left: 2vmin;
+    width:13vmin;
+    height: 16vmin;
 }

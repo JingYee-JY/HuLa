@@ -1,5 +1,5 @@
 const startButton = document.querySelector(".start");
-const title = document.querySelector(".title");
+const title = document.querySelector(".start-container");
 const difficulty = document.querySelector(".difficulty");
 const easy = document.querySelector(".easy-container");
 const normal = document.querySelector(".normal-container");
@@ -20,6 +20,10 @@ const final = document.querySelector(".final");
 const playAgain = document.querySelector(".playAgain")
 const questionNumber = document.querySelector(".questionNumber");
 const questionContainer = document.querySelector(".question-container");
+const questionContainer1 = document.querySelector(".question-container1");
+const next = document.querySelector(".nextButton");
+const confirm = document.querySelector(".confrimButton");
+const winNext = document.querySelector(".winNext");
 let Selectdifficulty;
 let currentInstruction = 0;
 
@@ -27,6 +31,9 @@ let current = 0;
 let score = 0;
 let correctAnswer;
 let pattern;
+let choice;
+let choicePattern;
+let choosenAnswer
 let totalQuestion = 0;
 
 let easyQuestions = false;
@@ -37,6 +44,11 @@ let wrongAns1;
 let wrongAns2;
 let wrongAns3;
 let wrongAns4;
+
+let wrongImg1;
+let wrongImg2;
+let wrongImg3;
+let wrongImg4;
 
 let wrongPattern1
 let wrongPattern2
@@ -55,7 +67,6 @@ let wrongPattern4
 //tong = 0
 //wan = 1
 //shou = 2
-
 const Question15 =[
     {number:"12", pattern:"0", image:"./img/Mahjong Tile 33.png"},
     {number:"12", pattern:"0", image:"./img/Mahjong Tile 33.png"},
@@ -63,14 +74,14 @@ const Question15 =[
     {number:"15", pattern:"2", image:"./img/Mahjong Tile 30.png"},
     {number:"15", pattern:"2",image: "./img/Mahjong Tile 30.png"},
     {number:"15", pattern:"2",image: "./img/Mahjong Tile 30.png"},
-    {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
-    {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
     {number:"13", pattern:"0",image: "./img/Mahjong Tile 34.png"},
     {number:"13", pattern:"0",image: "./img/Mahjong Tile 34.png"},
     {number:"13", pattern:"0",image: "./img/Mahjong Tile 34.png"},
     {number:"14", pattern:"1",image: "./img/Mahjong Tile 28.png"},
     {number:"14", pattern:"1",image: "./img/Mahjong Tile 28.png"},
-    {number:"14", pattern:"1",image: "./img/Mahjong Tile 28.png"}
+    {number:"14", pattern:"1",image: "./img/Mahjong Tile 28.png"},
+    {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
+    {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"}
 ];
 const Question14 =[
     {number:"1", pattern:"0", image:"./img/Mahjong Tile 1.png"},
@@ -79,14 +90,14 @@ const Question14 =[
     {number:"1", pattern:"2", image:"./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
-    {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"},
-    {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"},
     {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
     {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
     {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
-    {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"}
+    {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
+    {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"},
+    {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"}
 ];
 const Question13 =[
     {number:"9", pattern:"0", image:"./img/Mahjong Tile 9.png"},
@@ -95,14 +106,14 @@ const Question13 =[
     {number:"1", pattern:"1", image:"./img/Mahjong Tile 10.png"},
     {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
     {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
-    {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
-    {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
-    {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"}
+    {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
+    {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
+    {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"}
 ];
 const Question12 =[
     {number:"9", pattern:"1", image:"./img/Mahjong Tile 18.png"},
@@ -111,14 +122,14 @@ const Question12 =[
     {number:"11", pattern:"0", image:"./img/Mahjong Tile 32.png"},
     {number:"11", pattern:"0",image: "./img/Mahjong Tile 32.png"},
     {number:"11", pattern:"0",image: "./img/Mahjong Tile 32.png"},
-    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
-    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
     {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
     {number:"2", pattern:"1",image: "./img/Mahjong Tile 11.png"},
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
     {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"},
     {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"},
-    {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"}
+    {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"},
+    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
+    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"}
 ];
 const Question11 =[
     {number:"9", pattern:"2", image:"./img/Mahjong Tile 27.png"},
@@ -127,14 +138,14 @@ const Question11 =[
     {number:"3", pattern:"2", image:"./img/Mahjong Tile 21.png"},
     {number:"4", pattern:"2",image: "./img/Mahjong Tile 22.png"},
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
-    {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"},
-    {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"},
     {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"},
-    {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"}
+    {number:"15", pattern:"0",image: "./img/Mahjong Tile 30.png"},
+    {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"},
+    {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"}
 ];
 const Question10 =[
     {number:"1", pattern:"1", image:"./img/Mahjong Tile 10.png"},
@@ -143,14 +154,14 @@ const Question10 =[
     {number:"7", pattern:"2", image:"./img/Mahjong Tile 25.png"},
     {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"},
     {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"},
-    {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"},
-    {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"},
     {number:"4", pattern:"2",image: "./img/Mahjong Tile 22.png"},
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
     {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
     {number:"6", pattern:"0",image: "./img/Mahjong Tile 6.png"},
     {number:"7", pattern:"0",image: "./img/Mahjong Tile 7.png"},
-    {number:"8", pattern:"0",image: "./img/Mahjong Tile 8.png"}
+    {number:"8", pattern:"0",image: "./img/Mahjong Tile 8.png"},
+    {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"},
+    {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"}
 ];
 const Question9 =[
     {number:"2", pattern:"0", image:"./img/Mahjong Tile 2.png"},
@@ -159,14 +170,14 @@ const Question9 =[
     {number:"0", pattern:"0", image:"./img/Mahjong Tile 29.png"},
     {number:"0", pattern:"0",image: "./img/Mahjong Tile 29.png"},
     {number:"0", pattern:"0",image: "./img/Mahjong Tile 29.png"},
-    {number:"11", pattern:"0",image: "./img/Mahjong Tile 32.png"},
-    {number:"11", pattern:"0",image: "./img/Mahjong Tile 32.png"},
     {number:"5", pattern:"0",image: "./img/Mahjong Tile 5.png"},
     {number:"5", pattern:"0",image: "./img/Mahjong Tile 5.png"},
     {number:"5", pattern:"0",image: "./img/Mahjong Tile 5.png"},
     {number:"14", pattern:"0",image: "./img/Mahjong Tile 28.png"},
     {number:"14", pattern:"0",image: "./img/Mahjong Tile 28.png"},
-    {number:"14", pattern:"0",image: "./img/Mahjong Tile 28.png"}
+    {number:"14", pattern:"0",image: "./img/Mahjong Tile 28.png"},
+    {number:"11", pattern:"0",image: "./img/Mahjong Tile 32.png"},
+    {number:"11", pattern:"0",image: "./img/Mahjong Tile 32.png"}
 ];
 const Question8 =[
     {number:"10", pattern:"0", image:"./img/Mahjong Tile 31.png"},
@@ -175,14 +186,14 @@ const Question8 =[
     {number:"5", pattern:"1", image:"./img/Mahjong Tile 14.png"},
     {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"},
     {number:"7", pattern:"1",image: "./img/Mahjong Tile 16.png"},
-    {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
-    {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
     {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"},
     {number:"5", pattern:"0",image: "./img/Mahjong Tile 5.png"},
     {number:"6", pattern:"0",image: "./img/Mahjong Tile 6.png"},
     {number:"7", pattern:"2",image: "./img/Mahjong Tile 25.png"},
     {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"},
-    {number:"8", pattern:"2",image: "./img/Mahjong Tile 27.png"}
+    {number:"8", pattern:"2",image: "./img/Mahjong Tile 27.png"},
+    {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
+    {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"}
 ];
 const Question7 =[
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
@@ -191,14 +202,14 @@ const Question7 =[
     {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
     {number:"2", pattern:"1", image:"./img/Mahjong Tile 11.png"},
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
-    {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"},
-    {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"},
     {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
     {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"},
     {number:"7", pattern:"1",image: "./img/Mahjong Tile 16.png"},
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
     {number:"4", pattern:"1",image: "./img/Mahjong Tile 13.png"},
-    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"}    
+    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
+    {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"},
+    {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"}  
 ];
 const Question6 =[
     {number:"10", pattern:"0",image: "./img/Mahjong Tile 31.png"},
@@ -224,13 +235,13 @@ const Question5 =[
     {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"},
     {number:"5", pattern:"0",image: "./img/Mahjong Tile 5.png"},
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
-    {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
-    {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
     {number:"2", pattern:"0",image: "./img/Mahjong Tile 2.png"},
     {number:"3", pattern:"0",image: "./img/Mahjong Tile 3.png"},
     {number:"6", pattern:"0",image: "./img/Mahjong Tile 6.png"},
     {number:"7", pattern:"0",image: "./img/Mahjong Tile 7.png"},
-    {number:"8", pattern:"0",image: "./img/Mahjong Tile 8.png"}
+    {number:"8", pattern:"0",image: "./img/Mahjong Tile 8.png"},
+    {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
+    {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"}
 ];
 const Question4 =[
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
@@ -239,14 +250,14 @@ const Question4 =[
     {number:"6", pattern:"1", image:"./img/Mahjong Tile 15.png"},
     {number:"7", pattern:"1",image: "./img/Mahjong Tile 16.png"},
     {number:"8", pattern:"1",image: "./img/Mahjong Tile 17.png"},
-    {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
-    {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"2", pattern:"2",image: "./img/Mahjong Tile 20.png"},
     {number:"3", pattern:"2",image: "./img/Mahjong Tile 21.png"},
     {number:"2", pattern:"1",image: "./img/Mahjong Tile 11.png"},
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
-    {number:"4", pattern:"1",image: "./img/Mahjong Tile 13.png"}
+    {number:"4", pattern:"1",image: "./img/Mahjong Tile 13.png"},
+    {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
+    {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"}
 ];
 const Question3 =[
     {number:"2", pattern:"2",image: "./img/Mahjong Tile 20.png"},
@@ -255,14 +266,14 @@ const Question3 =[
     {number:"8", pattern:"1", image:"./img/Mahjong Tile 17.png"},
     {number:"8", pattern:"1",image: "./img/Mahjong Tile 17.png"},
     {number:"8", pattern:"1",image: "./img/Mahjong Tile 17.png"},
-    {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
-    {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
     {number:"7", pattern:"0",image: "./img/Mahjong Tile 7.png"},
     {number:"7", pattern:"0",image: "./img/Mahjong Tile 7.png"},
     {number:"7", pattern:"0",image: "./img/Mahjong Tile 7.png"},
     {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
     {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
-    {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"}
+    {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
+    {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
+    {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"}
 ];
 const Question2 =[
     {number:"7", pattern:"2",image: "./img/Mahjong Tile 25.png"},
@@ -271,14 +282,14 @@ const Question2 =[
     {number:"7", pattern:"0", image:"./img/Mahjong Tile 7.png"},
     {number:"8", pattern:"0",image: "./img/Mahjong Tile 8.png"},
     {number:"9", pattern:"0",image: "./img/Mahjong Tile 9.png"},
-    {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
-    {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
     {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"},
     {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"},
     {number:"12", pattern:"0",image: "./img/Mahjong Tile 33.png"},
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
     {number:"4", pattern:"1",image: "./img/Mahjong Tile 13.png"},
-    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"}
+    {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
+    {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
+    {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"}
 ];
 const Question1 =[
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
@@ -287,14 +298,14 @@ const Question1 =[
     {number:"2", pattern:"2",image: "./img/Mahjong Tile 20.png"},
     {number:"3", pattern:"2", image:"./img/Mahjong Tile 21.png"},
     {number:"4", pattern:"2",image: "./img/Mahjong Tile 22.png"},
-    {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"},
-    {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"},
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
     {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
     {number:"7", pattern:"2",image: "./img/Mahjong Tile 25.png"},
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
-    {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"}    
+    {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
+    {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"},
+    {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"}    
 ];
 
 
@@ -303,7 +314,6 @@ startButton.addEventListener("click", () => {
     Selectdifficulty = true;
     currentInstruction = 0
     difficulty.classList.remove("hide")
-    changeInstruction()
 })
 
 easyButton.addEventListener("click", () => {
@@ -312,6 +322,7 @@ easyButton.addEventListener("click", () => {
     easyQuestions = true;
     current = 0;
     totalQuestion = 5;
+    choosenAnswer = false
     Question()
 })
 normalButton.addEventListener("click", () => {
@@ -320,6 +331,7 @@ normalButton.addEventListener("click", () => {
     normalQuestions = true;
     current = 0;
     totalQuestion = 10;
+    choosenAnswer = false
     Question()
 })
 hardButton.addEventListener("click", () => {
@@ -328,65 +340,156 @@ hardButton.addEventListener("click", () => {
     hardQuestions = true;
     current = 0;
     totalQuestion = 20;
+    choosenAnswer = false
     Question()
 })
 
 ans1.addEventListener("click", () => {
-    if(wrongAns1 == correctAnswer && wrongPattern1 == pattern){
-        score += 1;
-        correct.classList.remove("hide")
+    if(choosenAnswer == false){
+        ans2.style.backgroundImage = "none"
+        ans3.style.backgroundImage = "none"
+        ans4.style.backgroundImage = "none"
+        ans1.style.backgroundImage = "url('./img/selecttile.png')"
+        ans1.style.backgroundSize = "contain"
+        ans1.style.backgroundPosition = "center"
+        ans1.style.backgroundRepeat = "no-repeat"
+        choice = wrongAns1
+        choicePattern = wrongPattern1
     }
-    else{
-        wrong.classList.remove("hide")
-    }
-    let delay = setTimeout(() => {
-        Question()
-        correct.classList.add("hide")
-        wrong.classList.add("hide")
-      }, 1000);
 })
 ans2.addEventListener("click", () => {
-    if(wrongAns2 == correctAnswer && wrongPattern2 == pattern){
-        score += 1;
-        correct.classList.remove("hide")
-    }
-    else{
-        wrong.classList.remove("hide")
-    }
-    let delay = setTimeout(() => {
-        Question()
-        correct.classList.add("hide")
-        wrong.classList.add("hide")
-      }, 1000);
+    if(choosenAnswer == false){
+        ans1.style.backgroundImage = "none"
+        ans3.style.backgroundImage = "none"
+        ans4.style.backgroundImage = "none"
+        ans2.style.backgroundImage = "url('./img/selecttile.png')"
+        ans2.style.backgroundSize = "contain"
+        ans2.style.backgroundPosition = "center"
+        ans2.style.backgroundRepeat = "no-repeat"
+        choice = wrongAns2
+        choicePattern = wrongPattern2
+        }
 })
 ans3.addEventListener("click", () => {
-    if(wrongAns3 == correctAnswer  && wrongPattern3 == pattern){
-        score += 1;
-        correct.classList.remove("hide")
-    }
-    else{
-        wrong.classList.remove("hide")
-    }
-    let delay = setTimeout(() => {
-        Question()
-        correct.classList.add("hide")
-        wrong.classList.add("hide")
-      }, 1000);
+    if(choosenAnswer == false){
+        ans1.style.backgroundImage = "none"
+        ans2.style.backgroundImage = "none"
+        ans4.style.backgroundImage = "none"
+        ans3.style.backgroundImage = "url('./img/selecttile.png')"
+        ans3.style.backgroundSize = "contain"
+        ans3.style.backgroundPosition = "center"
+        ans3.style.backgroundRepeat = "no-repeat"
+        choice = wrongAns3
+        choicePattern = wrongPattern3
+        }
 })
 ans4.addEventListener("click", () => {
-    if(wrongAns4 == correctAnswer  && wrongPattern4 == pattern){
+    if(choosenAnswer == false){
+        ans1.style.backgroundImage = "none"
+        ans2.style.backgroundImage = "none"
+        ans3.style.backgroundImage = "none"
+        ans4.style.backgroundImage = "url('./img/selecttile.png')"
+        ans4.style.backgroundSize = "contain"
+        ans4.style.backgroundPosition = "center"
+        ans4.style.backgroundRepeat = "no-repeat"
+        choice = wrongAns4
+        choicePattern = wrongPattern4
+        }
+})
+confirm.addEventListener("click", () => {
+    if(choice == null  && choicePattern == null){
+        return
+    }
+    if(choice == correctAnswer  && choicePattern == pattern){
         score += 1;
         correct.classList.remove("hide")
     }
-    else{
-        wrong.classList.remove("hide")
-    }
-    let delay = setTimeout(() => {
-        Question()
-        correct.classList.add("hide")
-        wrong.classList.add("hide")
-      }, 1000);
+        else{
+            console.log("wrong")
+            if(choice == wrongAns1 && choicePattern == wrongPattern1){
+                ans1.innerHTML=`
+            <img class="overlay" src="./img/wrong.png">
+            <img src="${wrongImg1}"></div>`
+            ans1.style.backgroundPosition = "center"
+            ans1.style.backgroundImage = "url('./img/wrong.png')"
+            }
+            if(choice == wrongAns2 && choicePattern == wrongPattern2){
+                ans2.innerHTML=`
+            <img class="overlay" src="./img/wrong.png">
+            <img src="${wrongImg2}"></div>`
+            ans2.style.backgroundPosition = "center"
+            ans2.style.backgroundImage = "url('./img/wrong.png')"
+            }
+            if(choice == wrongAns3 && choicePattern == wrongPattern3){
+                ans3.innerHTML=`
+            <img class="overlay" src="./img/wrong.png">
+            <img src="${wrongImg3}"></div>`
+            ans3.style.backgroundPosition = "center"
+            ans3.style.backgroundImage = "url('./img/wrong.png')"
+            }
+            if(choice == wrongAns4 && choicePattern == wrongPattern4){
+                ans4.innerHTML=`
+            <img class="overlay" src="./img/wrong.png">
+            <img src="${wrongImg4}"></div>`
+            ans4.style.backgroundPosition = "center"
+            ans4.style.backgroundImage = "url('./img/wrong.png')"
+            }
+            if(correctAnswer == wrongAns1 && pattern == wrongPattern1){
+            ans1.style.backgroundImage = "url('./img/selecttile.png')"
+            ans1.style.backgroundSize = "contain"
+            ans1.style.backgroundPosition = "center"
+            ans1.style.backgroundRepeat = "no-repeat"
+            }
+            if(correctAnswer == wrongAns2 && pattern == wrongPattern2){
+            ans2.style.backgroundImage = "url('./img/selecttile.png')"
+            ans2.style.backgroundSize = "contain"
+            ans2.style.backgroundPosition = "center"
+            ans2.style.backgroundRepeat = "no-repeat"
+            }
+            if(correctAnswer == wrongAns3 && pattern == wrongPattern3){
+            ans3.style.backgroundImage = "url('./img/selecttile.png')"
+            ans3.style.backgroundSize = "contain"
+            ans3.style.backgroundPosition = "center"
+            ans3.style.backgroundRepeat = "no-repeat"
+            }
+            if(correctAnswer == wrongAns4 && pattern == wrongPattern4){
+            ans4.style.backgroundImage = "url('./img/selecttile.png')"
+            ans4.style.backgroundSize = "contain"
+            ans4.style.backgroundPosition = "center"
+            ans4.style.backgroundRepeat = "no-repeat"
+            }
+        }
+        choosenAnswer = true
+        confirm.classList.add("hide")
+        next.classList.remove("hide")
+    })
+next.addEventListener("click", () => {
+    choosenAnswer = false;
+    ans1.style.backgroundImage = "none"
+    ans2.style.backgroundImage = "none"
+    ans3.style.backgroundImage = "none"
+    ans4.style.backgroundImage = "none"
+    correct.classList.add("hide")
+    choice = null;
+    choicePattern = null
+    Question()
+    confirm.classList.remove("hide")
+    next.classList.add("hide")
 })
+winNext.addEventListener("click", () => {
+    choosenAnswer = false;
+    ans1.style.backgroundImage = "none"
+    ans2.style.backgroundImage = "none"
+    ans3.style.backgroundImage = "none"
+    ans4.style.backgroundImage = "none"
+    correct.classList.add("hide")
+    choice = null;
+    choicePattern = null
+    Question()
+    confirm.classList.remove("hide")
+    next.classList.add("hide")
+})
+
 playAgain.addEventListener("click", () => {
     difficulty.classList.remove("hide")
     final.classList.add("hide")
@@ -402,16 +505,16 @@ function Question(){
         final.classList.remove("hide")
         game.classList.add("hide")
         if(score == totalQuestion){
-            picture.innerHTML = `<img class = "imgMid" src = "./img/Trophy.png">`
-            words.innerHTML = "You are a MahJong Master!"
+            picture.innerHTML = `<img class = "imgMid" src = "./img/mahjongMaster.png">`
+            words.innerHTML = ``
         }
         else if(score > pass){
-            picture.innerHTML = `<img class = "imgBiger" src = "./img/Money.png">`
-            words.innerHTML = "You are a MahJong Expert!"
+            picture.innerHTML = `<img class = "imgMid" src = "./img/mahjongExpert.png">`
+            words.innerHTML = ``
         }
         else if(score < pass){
-            picture.innerHTML = `<img class = "imgBig" src = "./img/Money Fly Away.png">`
-            words.innerHTML = "Give your best for the next one!"
+            picture.innerHTML = `<img class = "imgMid" src = "./img/mahjongNewbie.png">`
+            words.innerHTML = `<img class = "bigText" src = "./img/GiveYourBest.png">`
         }
         return
     }
@@ -466,7 +569,7 @@ function Question(){
         newQuestion = Question15
     }
 
-    questionNumber.innerHTML = "Question " + current + " / " + totalQuestion;
+    questionNumber.innerHTML = current + " / " + totalQuestion;
     if(easyQuestions == true){
         let missingTile = Math.floor(Math.random() * 14);
         correctImg = newQuestion[missingTile].image;
@@ -474,25 +577,23 @@ function Question(){
         pattern = newQuestion[missingTile].pattern;
         newQuestion[missingTile].image = "./img/Mahjong Tile Question Mark.png"
         questionContainer.innerHTML = `
-        <img src="${newQuestion[0].image}">
-            <img src="${newQuestion[1].image}">
-            <img src="${newQuestion[2].image}">
-            <img src="./img/Empty.png">
-            <img src="${newQuestion[3].image}">
-            <img src="${newQuestion[4].image}">
-            <img src="${newQuestion[5].image}">
-            <img src="./img/Empty.png">
-            <img src="${newQuestion[6].image}">
-            <img src="${newQuestion[7].image}">
-            <div></div>
-            <img src="${newQuestion[8].image}">
-            <img src="${newQuestion[9].image}">
-            <img src="${newQuestion[10].image}">
-            <img src="./img/Empty.png">
-            <img src="${newQuestion[11].image}">
-            <img src="${newQuestion[12].image}">
-            <img src="${newQuestion[13].image}">`
-            newQuestion[missingTile].image = correctImg
+                <img src="${newQuestion[0].image}">
+                <img src="${newQuestion[1].image}">
+                <img src="${newQuestion[2].image}">
+                <img src="./img/Empty.png">
+                <img src="${newQuestion[3].image}">
+                <img src="${newQuestion[4].image}">
+                <img src="${newQuestion[5].image}">
+                <img src="${newQuestion[6].image}">
+                <img src="${newQuestion[7].image}">
+                <img src="${newQuestion[8].image}">
+                <img src="./img/Empty.png">
+                <img src="${newQuestion[9].image}">
+                <img src="${newQuestion[10].image}">
+                <img src="${newQuestion[11].image}">`
+                questionContainer1.innerHTML = `<img src="${newQuestion[12].image}">
+                <img src="${newQuestion[13].image}">`
+                newQuestion[missingTile].image = correctImg;
     }
     if(normalQuestions == true || hardQuestions == true){
         let missingTile = Math.floor(Math.random() * 14);
@@ -635,16 +736,18 @@ function Question(){
                 <img src="${newQuestion[2].image}">
                 <img src="${newQuestion[5].image}">
                 <img src="${newQuestion[12].image}">
+                <img src="./img/Empty.png">
                 <img src="${newQuestion[9].image}">
                 <img src="${newQuestion[1].image}">
                 <img src="${newQuestion[6].image}">
                 <img src="${newQuestion[7].image}">
                 <img src="${newQuestion[3].image}">
-                <div></div>
                 <img src="${newQuestion[10].image}">
+                <img src="./img/Empty.png">
                 <img src="${newQuestion[0].image}">
                 <img src="${newQuestion[13].image}">
-                <img src="${newQuestion[4].image}">
+                <img src="${newQuestion[4].image}">`
+            questionContainer1.innerHTML = `
                 <img src="${newQuestion[8].image}">
                 <img src="${newQuestion[11].image}">`
         }
@@ -653,16 +756,18 @@ function Question(){
                 <img src="${newQuestion[4].image}">
                 <img src="${newQuestion[13].image}">
                 <img src="${newQuestion[8].image}">
+                <img src="./img/Empty.png">
                 <img src="${newQuestion[11].image}">
                 <img src="${newQuestion[6].image}">
                 <img src="${newQuestion[2].image}">
                 <img src="${newQuestion[12].image}">
                 <img src="${newQuestion[5].image}">
-                <div></div>
                 <img src="${newQuestion[3].image}">
+                <img src="./img/Empty.png">
                 <img src="${newQuestion[10].image}">
                 <img src="${newQuestion[1].image}">
-                <img src="${newQuestion[9].image}">
+                <img src="${newQuestion[9].image}">`
+            questionContainer1.innerHTML = `
                 <img src="${newQuestion[0].image}">
                 <img src="${newQuestion[7].image}">`
         }
@@ -671,22 +776,22 @@ function Question(){
                 <img src="${newQuestion[9].image}">
                 <img src="${newQuestion[7].image}">
                 <img src="${newQuestion[13].image}">
+                <img src="./img/Empty.png">
                 <img src="${newQuestion[10].image}">
                 <img src="${newQuestion[3].image}">
                 <img src="${newQuestion[1].image}">
                 <img src="${newQuestion[6].image}">
                 <img src="${newQuestion[8].image}">
-                <div></div>
                 <img src="${newQuestion[12].image}">
+                <img src="./img/Empty.png">
                 <img src="${newQuestion[2].image}">
                 <img src="${newQuestion[4].image}">
-                <img src="${newQuestion[11].image}">
-                <img src="${newQuestion[5].image}">
-                <img src="${newQuestion[0].image}">`
+                <img src="${newQuestion[11].image}">`
+            questionContainer1.innerHTML = `
+            <img src="${newQuestion[5].image}">
+            <img src="${newQuestion[0].image}">`
         }
-        
         newQuestion[missingTile].image = correctImg
-
     }
     wrongAns1 = Math.floor(Math.random() * 9);
     wrongPattern1 = Math.floor(Math.random() * 3);
@@ -696,11 +801,6 @@ function Question(){
     wrongPattern3 = Math.floor(Math.random() * 3);
     wrongAns4 = Math.floor(Math.random() * 9);
     wrongPattern4 = Math.floor(Math.random() * 3);
-    
-    let wrongImg1;
-    let wrongImg2;
-    let wrongImg3;
-    let wrongImg4;
 
     if(wrongAns1 == wrongAns2 && wrongPattern1 == wrongPattern2){
         wrongAns1 = Math.floor(Math.random() * 16);
@@ -1267,37 +1367,11 @@ function Question(){
     if(correctAnswerIndex == 3){
         wrongAns3 = correctAnswer;
         wrongPattern3 = pattern;
+        
     }
     if(correctAnswerIndex == 4){
         wrongAns4 = correctAnswer;
         wrongPattern4 = pattern;
     }
 
-}
-function changeInstruction(){
-    if(Selectdifficulty == true){
-        currentInstruction += 1;
-        if(currentInstruction == 1){
-            hard.classList.add("hide")
-            easy.classList.remove("hide")
-            let delay = setTimeout(() => {
-                changeInstruction()
-              }, 7000);
-        }
-        if(currentInstruction == 2){
-            easy.classList.add("hide")
-            normal.classList.remove("hide")
-            let delay = setTimeout(() => {
-                changeInstruction()
-              }, 7000);
-        }
-        if(currentInstruction == 3){
-            normal.classList.add("hide")
-            hard.classList.remove("hide")
-            currentInstruction = 0;
-            let delay = setTimeout(() => {
-                changeInstruction()
-              }, 7000);
-        }
-    }
 }
