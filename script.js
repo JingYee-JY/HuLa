@@ -508,7 +508,7 @@ function Question(){
             picture.innerHTML = `<img class = "imgMid" src = "./img/mahjongMaster.png">`
             words.innerHTML = ``
         }
-        else if(score > pass){
+        else if(score >= pass){
             picture.innerHTML = `<img class = "imgMid" src = "./img/mahjongExpert.png">`
             words.innerHTML = ``
         }
