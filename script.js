@@ -406,33 +406,29 @@ confirm.addEventListener("click", () => {
     }
         else{
             console.log("wrong")
+            ans1.style.backgroundImage = "none"
+        ans2.style.backgroundImage = "none"
+        ans3.style.backgroundImage = "none"
+        ans4.style.backgroundImage = "none"
             if(choice == wrongAns1 && choicePattern == wrongPattern1){
                 ans1.innerHTML=`
             <img class="overlay" src="./img/wrong.png">
             <img src="${wrongImg1}"></div>`
-            ans1.style.backgroundPosition = "center"
-            ans1.style.backgroundImage = "url('./img/wrong.png')"
             }
             if(choice == wrongAns2 && choicePattern == wrongPattern2){
                 ans2.innerHTML=`
             <img class="overlay" src="./img/wrong.png">
             <img src="${wrongImg2}"></div>`
-            ans2.style.backgroundPosition = "center"
-            ans2.style.backgroundImage = "url('./img/wrong.png')"
             }
             if(choice == wrongAns3 && choicePattern == wrongPattern3){
                 ans3.innerHTML=`
             <img class="overlay" src="./img/wrong.png">
             <img src="${wrongImg3}"></div>`
-            ans3.style.backgroundPosition = "center"
-            ans3.style.backgroundImage = "url('./img/wrong.png')"
             }
             if(choice == wrongAns4 && choicePattern == wrongPattern4){
                 ans4.innerHTML=`
             <img class="overlay" src="./img/wrong.png">
             <img src="${wrongImg4}"></div>`
-            ans4.style.backgroundPosition = "center"
-            ans4.style.backgroundImage = "url('./img/wrong.png')"
             }
             if(correctAnswer == wrongAns1 && pattern == wrongPattern1){
             ans1.style.backgroundImage = "url('./img/selecttile.png')"

@@ -172,7 +172,7 @@ div{
 }
 .imgMid{
     position: relative;
-    width: 25vh;
+    width: 50vmin;
     height: 100%;
 }
 .imgBiger{
@@ -204,6 +204,7 @@ div{
 .overlay{
     display: flex;
     position: absolute;
+    margin-top: -0.5vh;
     margin-left: 2vmin;
     width:13vmin;
     height: 16vmin;
