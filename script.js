@@ -388,16 +388,16 @@ confirm.addEventListener("click", () => {
     if(choice == null  && choicePattern == null){
         return
     }
+    ans1.style.backgroundColor = "Transparent"
+    ans2.style.backgroundColor = "Transparent"
+    ans3.style.backgroundColor = "Transparent"
+    ans4.style.backgroundColor = "Transparent"
     if(choice == correctAnswer  && choicePattern == pattern){
         score += 1;
         correct.classList.remove("hide")
     }
         else{
             console.log("wrong")
-            ans1.style.backgroundColor = "Transparent"
-            ans2.style.backgroundColor = "Transparent"
-            ans3.style.backgroundColor = "Transparent"
-            ans4.style.backgroundColor = "Transparent"
             if(choice == wrongAns1 && choicePattern == wrongPattern1){
                 ans1.innerHTML=`
                 <img src="${wrongImg1}"></div>
@@ -445,10 +445,6 @@ confirm.addEventListener("click", () => {
     })
 next.addEventListener("click", () => {
     choosenAnswer = false;
-    ans1.style.backgroundColor = "Transparent"
-    ans2.style.backgroundColor = "Transparent"
-    ans3.style.backgroundColor = "Transparent"
-    ans4.style.backgroundColor = "Transparent"
     ans1.style.backgroundImage = ""
     ans2.style.backgroundImage = ""
     ans3.style.backgroundImage = ""
