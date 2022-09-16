@@ -80,7 +80,6 @@ img{
 button{
     background-color: rgba(255, 255, 255,0);
     border: 0px;
-    position: relative;
     border-radius: 20px;
 }
 .btn{
@@ -190,6 +189,10 @@ div{
 }
 .icon{
     width: 7vh;
+}
+
+#btn1,#btn2,#btn3,#btn4{
+    position: relative;
 }
 #btn1 img, #btn2 img, #btn3 img, #btn4 img{
     position: relative;
