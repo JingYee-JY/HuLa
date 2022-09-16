@@ -346,52 +346,40 @@ hardButton.addEventListener("click", () => {
 
 ans1.addEventListener("click", () => {
     if(choosenAnswer == false){
-        ans2.style.backgroundImage = "none"
-        ans3.style.backgroundImage = "none"
-        ans4.style.backgroundImage = "none"
-        ans1.style.backgroundImage = "url('./img/selecttile.png')"
-        ans1.style.backgroundSize = "contain"
-        ans1.style.backgroundPosition = "center"
-        ans1.style.backgroundRepeat = "no-repeat"
+        ans2.style.backgroundColor = "Transparent"
+        ans3.style.backgroundColor = "Transparent"
+        ans4.style.backgroundColor = "Transparent"
+        ans1.style.backgroundColor = "#25712E"
         choice = wrongAns1
         choicePattern = wrongPattern1
     }
 })
 ans2.addEventListener("click", () => {
     if(choosenAnswer == false){
-        ans1.style.backgroundImage = "none"
-        ans3.style.backgroundImage = "none"
-        ans4.style.backgroundImage = "none"
-        ans2.style.backgroundImage = "url('./img/selecttile.png')"
-        ans2.style.backgroundSize = "contain"
-        ans2.style.backgroundPosition = "center"
-        ans2.style.backgroundRepeat = "no-repeat"
+        ans1.style.backgroundColor = "Transparent"
+        ans3.style.backgroundColor = "Transparent"
+        ans4.style.backgroundColor = "Transparent"
+        ans2.style.backgroundColor = "#25712E"
         choice = wrongAns2
         choicePattern = wrongPattern2
         }
 })
 ans3.addEventListener("click", () => {
     if(choosenAnswer == false){
-        ans1.style.backgroundImage = "none"
-        ans2.style.backgroundImage = "none"
-        ans4.style.backgroundImage = "none"
-        ans3.style.backgroundImage = "url('./img/selecttile.png')"
-        ans3.style.backgroundSize = "contain"
-        ans3.style.backgroundPosition = "center"
-        ans3.style.backgroundRepeat = "no-repeat"
+        ans1.style.backgroundColor = "Transparent"
+        ans2.style.backgroundColor = "Transparent"
+        ans4.style.backgroundColor = "Transparent"
+        ans3.style.backgroundColor = "#25712E"
         choice = wrongAns3
         choicePattern = wrongPattern3
         }
 })
 ans4.addEventListener("click", () => {
     if(choosenAnswer == false){
-        ans1.style.backgroundImage = "none"
-        ans2.style.backgroundImage = "none"
-        ans3.style.backgroundImage = "none"
-        ans4.style.backgroundImage = "url('./img/selecttile.png')"
-        ans4.style.backgroundSize = "contain"
-        ans4.style.backgroundPosition = "center"
-        ans4.style.backgroundRepeat = "no-repeat"
+        ans1.style.backgroundColor = "Transparent"
+        ans2.style.backgroundColor = "Transparent"
+        ans3.style.backgroundColor = "Transparent"
+        ans4.style.backgroundColor = "#25712E"
         choice = wrongAns4
         choicePattern = wrongPattern4
         }
@@ -406,53 +394,49 @@ confirm.addEventListener("click", () => {
     }
         else{
             console.log("wrong")
-            ans1.style.backgroundImage = "none"
-        ans2.style.backgroundImage = "none"
-        ans3.style.backgroundImage = "none"
-        ans4.style.backgroundImage = "none"
+            ans1.style.backgroundColor = "Transparent"
+            ans2.style.backgroundColor = "Transparent"
+            ans3.style.backgroundColor = "Transparent"
+            ans4.style.backgroundColor = "Transparent"
             if(choice == wrongAns1 && choicePattern == wrongPattern1){
                 ans1.innerHTML=`
-            <img class="overlay" src="./img/wrong.png">
-            <img src="${wrongImg1}"></div>`
+                <img src="${wrongImg1}"></div>
+                <img class="overlay" src="./img/wrong.png">`
             }
             if(choice == wrongAns2 && choicePattern == wrongPattern2){
                 ans2.innerHTML=`
-            <img class="overlay" src="./img/wrong.png">
-            <img src="${wrongImg2}"></div>`
+                <img src="${wrongImg2}"></div>
+                <img class="overlay" src="./img/wrong.png">`
             }
             if(choice == wrongAns3 && choicePattern == wrongPattern3){
                 ans3.innerHTML=`
-            <img class="overlay" src="./img/wrong.png">
-            <img src="${wrongImg3}"></div>`
+                <img src="${wrongImg3}"></div>
+                <img class="overlay" src="./img/wrong.png">`
             }
             if(choice == wrongAns4 && choicePattern == wrongPattern4){
                 ans4.innerHTML=`
-            <img class="overlay" src="./img/wrong.png">
-            <img src="${wrongImg4}"></div>`
+                <img src="${wrongImg4}"></div>
+                <img class="overlay" src="./img/wrong.png">`
             }
             if(correctAnswer == wrongAns1 && pattern == wrongPattern1){
-            ans1.style.backgroundImage = "url('./img/selecttile.png')"
-            ans1.style.backgroundSize = "contain"
-            ans1.style.backgroundPosition = "center"
-            ans1.style.backgroundRepeat = "no-repeat"
+            ans1.innerHTML =`
+                <img src="${wrongImg1}"></div>
+                <img class="overlay" src="./img/correct.png">`
             }
             if(correctAnswer == wrongAns2 && pattern == wrongPattern2){
-            ans2.style.backgroundImage = "url('./img/selecttile.png')"
-            ans2.style.backgroundSize = "contain"
-            ans2.style.backgroundPosition = "center"
-            ans2.style.backgroundRepeat = "no-repeat"
+                ans2.innerHTML =`
+                <img src="${wrongImg2}"></div>
+                <img class="overlay" src="./img/correct.png">`
             }
             if(correctAnswer == wrongAns3 && pattern == wrongPattern3){
-            ans3.style.backgroundImage = "url('./img/selecttile.png')"
-            ans3.style.backgroundSize = "contain"
-            ans3.style.backgroundPosition = "center"
-            ans3.style.backgroundRepeat = "no-repeat"
+                ans3.innerHTML =`
+                <img src="${wrongImg3}"></div>
+                <img class="overlay" src="./img/correct.png">`
             }
             if(correctAnswer == wrongAns4 && pattern == wrongPattern4){
-            ans4.style.backgroundImage = "url('./img/selecttile.png')"
-            ans4.style.backgroundSize = "contain"
-            ans4.style.backgroundPosition = "center"
-            ans4.style.backgroundRepeat = "no-repeat"
+                ans4.innerHTML =`
+                <img src="${wrongImg4}"></div>
+                <img class="overlay" src="./img/correct.png">`
             }
         }
         choosenAnswer = true
@@ -461,10 +445,14 @@ confirm.addEventListener("click", () => {
     })
 next.addEventListener("click", () => {
     choosenAnswer = false;
-    ans1.style.backgroundImage = "none"
-    ans2.style.backgroundImage = "none"
-    ans3.style.backgroundImage = "none"
-    ans4.style.backgroundImage = "none"
+    ans1.style.backgroundColor = "Transparent"
+    ans2.style.backgroundColor = "Transparent"
+    ans3.style.backgroundColor = "Transparent"
+    ans4.style.backgroundColor = "Transparent"
+    ans1.style.backgroundImage = ""
+    ans2.style.backgroundImage = ""
+    ans3.style.backgroundImage = ""
+    ans4.style.backgroundImage = ""
     correct.classList.add("hide")
     choice = null;
     choicePattern = null
@@ -1355,19 +1343,22 @@ function Question(){
     if(correctAnswerIndex == 1){
         wrongAns1 = correctAnswer;
         wrongPattern1 = pattern;
+        wrongImg1 = correctImg
     }
     if(correctAnswerIndex == 2){
         wrongAns2 = correctAnswer;
         wrongPattern2 = pattern;
+        wrongImg2 = correctImg
     }
     if(correctAnswerIndex == 3){
         wrongAns3 = correctAnswer;
         wrongPattern3 = pattern;
-        
+        wrongImg3 = correctImg
     }
     if(correctAnswerIndex == 4){
         wrongAns4 = correctAnswer;
         wrongPattern4 = pattern;
+        wrongImg4 = correctImg
     }
 
 }
