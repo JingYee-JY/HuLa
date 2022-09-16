@@ -174,15 +174,13 @@ div{
 .bigText{
     width: 30vh;
 }
-.imgMid{
-    position: relative;
-    width: 50vmin;
-    height: 100%;
+.picture{
+    display: flex;
 }
-.imgBiger{
-    position: relative;
-    width: 50vh;
-    height: 100%;
+.imgMid{
+    margin: 0 auto;
+    width: 75%;
+    height: auto;
 }
 .topRight{
     position: absolute;
@@ -221,5 +219,8 @@ div{
         top: -2px;
         right: 20px;
         width: 65%;
+    }
+    .imgMid{
+        width: 50%;
     }
 }
