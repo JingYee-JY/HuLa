@@ -18,6 +18,7 @@ const wrong = document.querySelector(".wrong");
 const game = document.querySelector(".game");
 const final = document.querySelector(".final");
 const playAgain = document.querySelector(".playAgain")
+const home = document.querySelector(".home")
 const questionNumber = document.querySelector(".questionNumber");
 const questionContainer = document.querySelector(".question-container");
 const questionContainer1 = document.querySelector(".question-container1");
@@ -320,28 +321,22 @@ easyButton.addEventListener("click", () => {
     difficulty.classList.add("hide")
     game.classList.remove("hide")
     easyQuestions = true;
-    current = 0;
     totalQuestion = 5;
-    choosenAnswer = false
-    Question()
+    Began()
 })
 normalButton.addEventListener("click", () => {
     difficulty.classList.add("hide")
     game.classList.remove("hide")
     normalQuestions = true;
-    current = 0;
     totalQuestion = 10;
-    choosenAnswer = false
-    Question()
+    Began()
 })
 hardButton.addEventListener("click", () => {
     difficulty.classList.add("hide")
     game.classList.remove("hide")
     hardQuestions = true;
-    current = 0;
     totalQuestion = 20;
-    choosenAnswer = false
-    Question()
+    Began()
 })
 
 ans1.addEventListener("click", () => {
@@ -470,13 +465,25 @@ winNext.addEventListener("click", () => {
     next.classList.add("hide")
 })
 
-playAgain.addEventListener("click", () => {
-    difficulty.classList.remove("hide")
+home.addEventListener("click", () => {
+    title.classList.remove("hide")
     final.classList.add("hide")
     easyQuestions = false;
     normalQuestions = false;
     hardQuestions = false;
 })
+
+playAgain.addEventListener("click", () => {
+    game.classList.remove("hide")
+    final.classList.add("hide")
+    Began()
+})
+
+function Began(){
+    current = 0;
+    choosenAnswer = false
+    Question()
+}
 
 function Question(){
     let pass = totalQuestion /2;
