@@ -320,6 +320,7 @@ startButton.addEventListener("click", () => {
         title.classList.add("hide")
         Selectdifficulty = true;
         currentInstruction = 0
+        score = 0
         difficulty.classList.remove("hide")
     }, 200);
 })
