@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable =no">
     <title>Hu La</title>
     <link rel="stylesheet" 
     href="https://fonts.googleapis.com/css?family=Lilita One">
@@ -44,21 +44,12 @@
             <button id="btn3"></button>
             <button id="btn4"></button>
         </div>
-        <button class="confrimButton">
-            <img class="btn" src="./img/confirm.png">
-        </button>
-        <button class="nextButton hide">
-            <img class="btn" src="./img/next.png">
-        </button>
         <div class="correct hide">
-            <img class="small" src="./img/hu.png">
-            <button class="winNext">
-                <img class="hubtn" src="./img/huNext.png">
-            </button>
+            <img class="small">
         </div>
     </div>
     <div class="final hide">
-        <img class="title" src="./img/title.png">
+        <img class="title endTitle" src="./img/title.png">
         <div class="center">
             <div class="picture"></div>
             <div class="words"></div>
@@ -70,6 +61,12 @@
             <img class="btn" src="./img/home.png">
         </button>
     </div>
+
+    <audio id="click" src="sound/click.wav"></audio>
+    <audio id="clap" src="sound/clap.wav"></audio>
+    <audio id="completed" src="./sound/completed.wav"></audio>
+    <audio id="lose" src="./sound/lose.wav"></audio>
+
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
 </body>

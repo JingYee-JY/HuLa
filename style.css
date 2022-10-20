@@ -72,7 +72,7 @@ img{
 }
 .title,
 .select-title{
-    width: 20vh;
+    width: 70%;
 }
 .preview{
     width: 97vmin;
@@ -109,6 +109,28 @@ button{
     display: none;
     visibility: hidden;
 }
+.start:active,.startGame:active,.readyButton:active,.easy:active,.normal:active,.hard:active,.playAgain:active,.home:active{
+    animation: animate 0.2s;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    25%{
+        transform: rotate(-20deg) translateX(-10px);
+    }
+    50%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    75%{
+        transform: rotate(20deg) translateX(10px);
+    }
+    100%{
+        transform: rotate(0deg) translateX(0px);
+    }
+}
+
 .easy-container,
 .hard-container,
 .normal-container{
@@ -178,7 +200,7 @@ div{
 }
 .imgMid{
     margin: 0 auto;
-    width: 75%;
+    width: 60%;
     height: auto;
 }
 .topRight{
@@ -218,6 +240,9 @@ div{
 
 /*desktop*/
 @media screen and (min-width:1200px){
+    .title,.select-title{
+        max-width: 150px;
+    }
     .overlay{
         top: -2px;
         right: 20px;
@@ -227,3 +252,9 @@ div{
         width: 50%;
     }
 }
+
+@media screen and (max-width:767px){
+    .endTitle {
+      display: none;
+    }
+  }
