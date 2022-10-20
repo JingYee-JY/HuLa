@@ -179,7 +179,7 @@ div{
     color: #FFF8E0;
 }
 .small{
-    width: 90vmin;
+    width: 60%;
 }
 .imgBig{
     width: 40vh;
@@ -250,6 +250,9 @@ div{
     }
     .imgMid{
         width: 50%;
+    }
+    .small{
+        width: 30%;
     }
 }
 

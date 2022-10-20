@@ -391,13 +391,17 @@ for(let x = 1; x < 5; x++){
                 small.src = "./img/wrong.png"
                 correct.classList.remove("hide")
             }
-            let delay = setTimeout(()=>{
-                correct.classList.add("hide")
-                Question()
-                small.src = ""
-            }, 1000)
     })
 }
+
+correct.addEventListener("click", () => {
+    playClickSound()
+    let delay = setTimeout(() => {
+        correct.classList.add("hide")
+        Question()
+        small.src = ""
+    }, 200);
+})
 
 function Began(){
     current = 0;
