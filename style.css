@@ -113,6 +113,10 @@ button{
     animation: animate 0.2s;
 }
 
+.small{
+    animation: shake 2s infinite;
+}
+
 @keyframes animate{
     0%{
         transform: rotate(0deg) translateX(0px);
@@ -127,6 +131,25 @@ button{
         transform: rotate(20deg) translateX(10px);
     }
     100%{
+        transform: rotate(0deg) translateX(0px);
+    }
+}
+
+@keyframes shake{
+    0%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    15%{
+        transform: rotate(-20deg) translateX(-10px);
+    }
+    30%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    
+    45%{
+        transform: rotate(20deg) translateX(10px);
+    }
+    55%{
         transform: rotate(0deg) translateX(0px);
     }
 }
@@ -179,7 +202,7 @@ div{
     color: #FFF8E0;
 }
 .small{
-    width: 60%;
+    width: 90%;
 }
 .imgBig{
     width: 40vh;
@@ -235,6 +258,9 @@ div{
         top: 0px;
         right: 28px;
         width: 65%;
+    }
+    .small{
+        width: 80%;
     }
 }
 
