@@ -1,0 +1,151 @@
+/*GamePage*/
+.gamePage{
+    gap: 5px;
+}
+
+.questionNumber{
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 30px;
+    color: var(--secondary);
+    margin-top: 15px;
+}
+
+.whole-question{
+    position: relative;
+}
+
+.question{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.groupings{
+    display: flex;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.tile{
+    width: 15%;
+    margin: 10px 0px;
+    margin-bottom: 0px;
+    height: auto;
+}
+
+.space{
+    margin-left: 20px;
+}
+
+.text{
+    color: white;
+    font-size: 30px;
+}
+
+.options{
+    display: grid;
+    width: 75%;
+    gap: 20px 0px;
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: repeat(2,auto);
+}
+
+.choicesButton{
+    background-color: transparent;
+    padding: 10px 0px;
+    border: 0;
+}
+
+.choicesButton img{
+    width: 60%;
+    height: auto;
+}
+
+.chosen{
+    background-color: var(--secondary);
+    border-radius: 20px;
+}
+
+/*PopUp*/
+.popUp{
+    width: 100%;
+    height: 100%;
+    background-color: var(--faded);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.background{
+    background-color: white;
+    width: 90%;
+    border: 10px solid var(--third);
+    border-radius: 15px;
+    font-weight: 300;
+    text-align: center;
+    padding: 20px;
+    font-size: 32px;
+    color: #433836;
+}
+
+.mark{
+    width: 15%;
+    margin-bottom: -30px;
+    height: auto;
+    z-index: 25;
+}
+
+.words{
+    font-weight: 500;
+    font-size: 60px;
+    padding-bottom: 5px;
+}
+
+.correctAnswer{
+    width: 50%;
+    padding: 20px 0px;
+}
+
+.next{
+    margin-top: -35px;
+    height: auto;
+}
+
+/*ipad*/
+@media screen and (min-width:768px) and (max-width:1023px) {
+    /*GamePage*/
+    .questionNumber {
+        margin-top: 30px;
+        font-size: 60px;
+    }
+
+    .text {
+        font-size: 50px;
+    }
+
+    .options {
+        width: 65%;
+    }
+
+    /*PopUp*/
+    .mark {
+        margin-bottom: -50px;
+    }
+
+    .background{
+        font-size: 50px;
+        padding: 40px;
+    }
+
+    .words{
+        font-size: 100px;
+    }
+
+    .next {
+        margin-top: -80px;
+    }
+}

@@ -5,69 +5,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable =no">
     <title>Hu La</title>
+    <link rel="stylesheet" href="css/layout.css"/>
+    <link rel="stylesheet" href="css/game.css"/>
     <link rel="stylesheet" 
-    href="https://fonts.googleapis.com/css?family=Lilita One">
+    href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&display=swap">
 </head>
 <body>
-    <div class="start-container">
+    <div class="startPage">
         <img class="title" src="./img/title.png">
-        <img class="preview "src="./img/preview.png">
-        <button class="start">
-            <img class="btn" src="./img/startGame.png">
-        </button>
+        <img class="preview" src="./img/preview.png">
+        <img class="preview2" src="./img/previewIpad.png">
+        <img class="start button" src="./img/startBtn.png">
     </div>
-    <div class="difficulty hide">
-        <img class="select-title" src="./img/title.png">
-        <img class="select-difficulty" src="./img/selectdifficulty.png">
-        <button class="easy">
-            <img  class="btn" src="./img/easy.png">
-        </button>
-        <button class="normal">
-            <img  class="btn" src="./img/normal.png">
-        </button>
-        <button class="hard">
-            <img  class="btn" src="./img/hard.png">
-        </button>
-    </div>
-    <div class="game hide">
-        <div class="topRight">
+
+    <div class="selectionPage hide">
+        <img class="title" src="./img/title.png">
+        <div class="choices">
+          <p>Choose one</p>
+          <img class="easy button" src="./img/easy.png">
+          <img class="normal button" src="./img/normal.png">
+          <img class="hard button" src="./img/hard.png">
         </div>
+    </div>
+
+    <div class="instructionPage hide">
+        <img class="title" src="./img/title.png">
+        <p>How to play</p>
+        <div class="details">
+          <p>
+            Choose the correct <br>
+            Mahjong to win the game. 
+          </p>
+        </div>
+        <img class="startGame button" src="./img/startGame.png">
+      </div>
+
+    <div class="gamePage hide">
         <p class="questionNumber">0/0</p>
-        <div class="whole-question">
-            <div class="question-container"></div>
-            <div class="question-container1"></div>
+        <div class="question">
+            <div class="groupings">
+                <img class="tile">
+                <img class="tile">
+                <img class="tile">
+                <img class="tile space">
+                <img class="tile">
+                <img class="tile">
+            </div>
+            <div class="groupings">
+                <img class="tile">
+                <img class="tile">
+                <img class="tile">
+                <img class="tile space">
+                <img class="tile">
+                <img class="tile">
+            </div>
+            <div class="groupings">
+                <img class="tile">
+                <img class="tile">
+            </div>
         </div>
-        <img class="text" src="./img/yourAnswer.png" alt="">
+        <p class="text">Choose your answer<p>
         <div class="options">
-            <button id="btn1"></button>
-            <button id="btn2"></button>
-            <button id="btn3"></button>
-            <button id="btn4"></button>
-        </div>
-        <div class="correct hide">
-            <img class="small">
+            <button id="btn1" class="choicesButton"></button>
+            <button id="btn2" class="choicesButton"></button>
+            <button id="btn3" class="choicesButton"></button>
+            <button id="btn4" class="choicesButton"></button>
         </div>
     </div>
-    <div class="final hide">
-        <img class="title endTitle" src="./img/title.png">
-        <div class="center">
-            <div class="picture"></div>
-            <div class="words"></div>
+
+    <div class="popUp hide">
+        <img class="mark">
+        <div class="background">
+            <p class="words"></p>
+            <p>the answer is</p>
+            <img class="correctAnswer">
         </div>
-        <button class="playAgain">
-            <img class="btn" src="./img/playAgain.png">
-        </button>
-        <button class="home">
-            <img class="btn" src="./img/home.png">
-        </button>
+        <img class="next button" src="./img/next.png">
     </div>
+
+    <div class="finalPage hide">
+        <img class="medal" src="./img/You Tried1.png">
+        <div class="scoreText">
+        </div>
+        <div class="group">
+            <div class="words1">Your score</div>
+            <div class="words2"></div>
+        </div>
+        <div class="buttons">
+            <img class="again roundedButton" src="./img/again.png">
+            <img class="home roundedButton" src="./img/home.png">
+        </div>
+    </div>
+
+    <img class="rotate" src="./img/rotate.png">
 
     <audio id="click" src="sound/click.wav"></audio>
     <audio id="clap" src="sound/clap.wav"></audio>
     <audio id="completed" src="./sound/completed.wav"></audio>
     <audio id="lose" src="./sound/lose.wav"></audio>
+    <audio id="correct" src="./sound/correct.wav"></audio>
+    <audio id="wrong" src="./sound/wrong.wav"></audio>
 
-    <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
 </body>
 </html>
