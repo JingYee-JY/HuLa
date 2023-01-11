@@ -118,7 +118,7 @@ const allTiles = [
     {number:"7", pattern:"3",image: "./img/Mahjong Tile 34.png"},
 ]
 
-const Question15 =[
+var Question15 =[
     {number:"12", pattern:"0", image:"./img/Mahjong Tile 33.png"},
     {number:"12", pattern:"0", image:"./img/Mahjong Tile 33.png"},
     {number:"12", pattern:"0", image:"./img/Mahjong Tile 33.png"},
@@ -134,7 +134,7 @@ const Question15 =[
     {number:"4", pattern:"3",image: "./img/Mahjong Tile 31.png"},
     {number:"4", pattern:"3",image: "./img/Mahjong Tile 31.png"}
 ];
-const Question14 =[
+var Question14 =[
     {number:"1", pattern:"0", image:"./img/Mahjong Tile 1.png"},
     {number:"1", pattern:"0", image:"./img/Mahjong Tile 1.png"},
     {number:"1", pattern:"0", image:"./img/Mahjong Tile 1.png"},
@@ -150,7 +150,7 @@ const Question14 =[
     {number:"3", pattern:"3",image: "./img/Mahjong Tile 30.png"},
     {number:"3", pattern:"3",image: "./img/Mahjong Tile 30.png"}
 ];
-const Question13 =[
+var Question13 =[
     {number:"9", pattern:"0", image:"./img/Mahjong Tile 9.png"},
     {number:"9", pattern:"0", image:"./img/Mahjong Tile 9.png"},
     {number:"9", pattern:"0", image:"./img/Mahjong Tile 9.png"},
@@ -166,7 +166,7 @@ const Question13 =[
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"}
 ];
-const Question12 =[
+var Question12 =[
     {number:"9", pattern:"1", image:"./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1", image:"./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1", image:"./img/Mahjong Tile 18.png"},
@@ -182,7 +182,7 @@ const Question12 =[
     {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"},
     {number:"5", pattern:"1",image: "./img/Mahjong Tile 14.png"}
 ];
-const Question11 =[
+var Question11 =[
     {number:"9", pattern:"2", image:"./img/Mahjong Tile 27.png"},
     {number:"9", pattern:"2", image:"./img/Mahjong Tile 27.png"},
     {number:"9", pattern:"2", image:"./img/Mahjong Tile 27.png"},
@@ -198,7 +198,7 @@ const Question11 =[
     {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"},
     {number:"8", pattern:"2",image: "./img/Mahjong Tile 26.png"}
 ];
-const Question10 =[
+var Question10 =[
     {number:"1", pattern:"1", image:"./img/Mahjong Tile 10.png"},
     {number:"2", pattern:"1", image:"./img/Mahjong Tile 11.png"},
     {number:"3", pattern:"1", image:"./img/Mahjong Tile 12.png"},
@@ -214,7 +214,7 @@ const Question10 =[
     {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"},
     {number:"4", pattern:"0",image: "./img/Mahjong Tile 4.png"}
 ];
-const Question9 =[
+var Question9 =[
     {number:"2", pattern:"0", image:"./img/Mahjong Tile 2.png"},
     {number:"2", pattern:"0", image:"./img/Mahjong Tile 2.png"},
     {number:"2", pattern:"0", image:"./img/Mahjong Tile 2.png"},
@@ -230,7 +230,7 @@ const Question9 =[
     {number:"5", pattern:"3",image: "./img/Mahjong Tile 32.png"},
     {number:"5", pattern:"3",image: "./img/Mahjong Tile 32.png"}
 ];
-const Question8 =[
+var Question8 =[
     {number:"4", pattern:"3", image:"./img/Mahjong Tile 31.png"},
     {number:"4", pattern:"3", image:"./img/Mahjong Tile 31.png"},
     {number:"4", pattern:"3", image:"./img/Mahjong Tile 31.png"},
@@ -246,7 +246,7 @@ const Question8 =[
     {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"},
     {number:"1", pattern:"1",image: "./img/Mahjong Tile 10.png"}
 ];
-const Question7 =[
+var Question7 =[
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
     {number:"9", pattern:"1",image: "./img/Mahjong Tile 18.png"},
@@ -262,7 +262,7 @@ const Question7 =[
     {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"},
     {number:"6", pattern:"1",image: "./img/Mahjong Tile 15.png"}  
 ];
-const Question6 =[
+var Question6 =[
     {number:"4", pattern:"3",image: "./img/Mahjong Tile 31.png"},
     {number:"5", pattern:"3",image: "./img/Mahjong Tile 32.png"},
     {number:"6", pattern:"3",image: "./img/Mahjong Tile 33.png"},
@@ -278,7 +278,7 @@ const Question6 =[
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"}
 ];
-const Question5 =[
+var Question5 =[
     {number:"7", pattern:"0",image: "./img/Mahjong Tile 7.png"},
     {number:"8", pattern:"0",image: "./img/Mahjong Tile 8.png"},
     {number:"9", pattern:"0",image: "./img/Mahjong Tile 9.png"},
@@ -294,7 +294,7 @@ const Question5 =[
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"}
 ];
-const Question4 =[
+var Question4 =[
     {number:"1", pattern:"0",image: "./img/Mahjong Tile 1.png"},
     {number:"2", pattern:"0",image: "./img/Mahjong Tile 2.png"},
     {number:"3", pattern:"0",image: "./img/Mahjong Tile 3.png"},
@@ -310,7 +310,7 @@ const Question4 =[
     {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"},
     {number:"6", pattern:"2",image: "./img/Mahjong Tile 24.png"}
 ];
-const Question3 =[
+var Question3 =[
     {number:"2", pattern:"2",image: "./img/Mahjong Tile 20.png"},
     {number:"2", pattern:"2",image: "./img/Mahjong Tile 20.png"},
     {number:"2", pattern:"2",image: "./img/Mahjong Tile 20.png"},
@@ -326,7 +326,7 @@ const Question3 =[
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"},
     {number:"3", pattern:"1",image: "./img/Mahjong Tile 12.png"}
 ];
-const Question2 =[
+var Question2 =[
     {number:"7", pattern:"2",image: "./img/Mahjong Tile 25.png"},
     {number:"7", pattern:"2",image: "./img/Mahjong Tile 25.png"},
     {number:"7", pattern:"2",image: "./img/Mahjong Tile 25.png"},
@@ -342,7 +342,7 @@ const Question2 =[
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"},
     {number:"5", pattern:"2",image: "./img/Mahjong Tile 23.png"}
 ];
-const Question1 =[
+var Question1 =[
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
     {number:"1", pattern:"2",image: "./img/Mahjong Tile 19.png"},
@@ -359,7 +359,7 @@ const Question1 =[
     {number:"9", pattern:"2",image: "./img/Mahjong Tile 27.png"}    
 ];
 
-const allQuestion =[ Question1,Question2,Question3,Question4,Question5,Question6,Question7,Question8,Question9,Question10,Question11,Question12,Question13,Question14,Question15]
+var allQuestion =[ "Question1","Question2","Question3","Question4","Question5","Question6","Question7","Question8","Question9","Question10","Question11","Question12","Question13","Question14","Question15"]
 
 startButton.addEventListener("click", () => {
     playClickSound()
@@ -523,57 +523,11 @@ function Question(){
     }
     current += 1;
     let newQuestion
-    let randomQuestionIndex = Math.floor(Math.random() * 15);
+    let randomQuestionIndex = Math.floor(Math.random() * allQuestion.length);
 
-    newQuestion = window["Question" + (randomQuestionIndex - 1)]
-    if(randomQuestionIndex == 0){
-        newQuestion = Question1
-    }
-    if(randomQuestionIndex == 1){
-        newQuestion = Question2
-    }
-    if(randomQuestionIndex == 2){
-        newQuestion = Question3
-    }
-    if(randomQuestionIndex == 3){
-        newQuestion = Question4
-    }
-    if(randomQuestionIndex == 4){
-        newQuestion = Question5
-    }
-    if(randomQuestionIndex == 5){
-        newQuestion = Question6
-    }
-    if(randomQuestionIndex == 6){
-        newQuestion = Question7
-    }
-    if(randomQuestionIndex == 7){
-        newQuestion = Question8
-    }
-    if(randomQuestionIndex == 8){
-        newQuestion = Question9
-    }
-    if(randomQuestionIndex == 9){
-        newQuestion = Question10
-    }
-    if(randomQuestionIndex == 10){
-        newQuestion = Question11
-    }
-    if(randomQuestionIndex == 11){
-        newQuestion = Question12
-    }
-    if(randomQuestionIndex == 12){
-        newQuestion = Question13
-    }
-    if(randomQuestionIndex == 13){
-        newQuestion = Question14
-    }
-    if(randomQuestionIndex == 14){
-        newQuestion = Question15
-    }
-
+    newQuestion = window[allQuestion[randomQuestionIndex]]
+    
     questionNumber.innerHTML = current + "/" + totalQuestion;
-
 
     //Randomising one question tile
     let missingTile = Math.floor(Math.random() * newQuestion.length);
